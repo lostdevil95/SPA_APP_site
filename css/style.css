@@ -1,13 +1,36 @@
+body {
+    margin-bottom: 60px;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: fit-content;
+    line-height: 40px;
+    background-color: rgb(53, 48, 48);
+    text-align: center;
+}
+
+.container{
+    max-width: 1200px;
+}
 .home-slider {
     padding: 0;
+    margin-top: 10px;
 }
 
 .home-slider h5{
-    font-size: 60px;
+    font-size: 30px;
 }
 
 .home-slider p{
-    font-size: 30px;
+    font-size: 15px;
 }
 .carousel-caption {
     bottom: 100px;
@@ -15,4 +38,10 @@
 
 .carousel-item {
     height: 20rem;
+}
+
+.col-sm{
+    text-align: center;
+    background-color: antiquewhite;
+    margin: 5px;
 }
