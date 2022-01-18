@@ -17,21 +17,23 @@ footer {
     text-align: center;
 }
 
-.container{
+.container {
     max-width: 1200px;
 }
+
 .home-slider {
     padding: 0;
     margin-top: 10px;
 }
 
-.home-slider h5{
+.home-slider h5 {
     font-size: 30px;
 }
 
-.home-slider p{
+.home-slider p {
     font-size: 15px;
 }
+
 .carousel-caption {
     bottom: 100px;
 }
@@ -40,8 +42,33 @@ footer {
     height: 20rem;
 }
 
-.col-sm{
+.heading {
+    background-color: dimgrey;
+    padding-top: 20px;
+    border-radius: 5px;
+}
+
+.head_text {
+    color: rgb(233, 231, 231);
+    text-align: center;
+}
+
+.col-sm {
     text-align: center;
     background-color: antiquewhite;
     margin: 5px;
+}
+
+.heading {
+    height: 80px;
+    margin: 40px 0 40px 0;
+}
+
+.form-control {
+    margin: 12px 0 12px 0;
+}
+
+.container.container_sign {
+    max-width: 500px;
+    margin-top: 160px;
 }
