@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils import timezone
-
+from ckeditor_uploader.fields import RichTextUploadingField
 
 class Post(models.Model):
     h1 = models.CharField(max_length=200)
