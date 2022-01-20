@@ -11,10 +11,15 @@ footer {
     position: absolute;
     bottom: 0;
     width: 100%;
-    height: fit-content;
-    line-height: 40px;
+    height: 70px;
+    line-height: 60px;
     background-color: rgb(53, 48, 48);
     text-align: center;
+}
+
+.my-3{
+    text-align: center;
+    color: rgba(71, 71, 71, 0.945);
 }
 
 .container {
@@ -26,11 +31,14 @@ footer {
 }
 
 .home-slider h5 {
-    font-size: 30px;
+    font-size: 70px;
+    color:
 }
 
 .home-slider p {
+    margin-top: -100px;
     font-size: 15px;
+    color:dimgrey;
 }
 
 .carousel-caption {
@@ -38,7 +46,11 @@ footer {
 }
 
 .carousel-item {
-    height: 20rem;
+    height: 12rem;
+}
+
+.carousel-control-next{
+    height: 12rem;
 }
 
 .heading {
@@ -67,7 +79,17 @@ footer {
     margin: 12px 0;
 }
 
+.page-item.active .page-link{
+    background-color: rgb(58, 58, 58);
+    border-color: white;
+}
+
+.page-link{
+    color:rgba(0, 0, 0, 0.719);
+}
+
 .container.container_sign {
     max-width: 500px;
     margin-top: 160px;
 }
+
