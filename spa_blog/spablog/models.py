@@ -16,3 +16,8 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
+class Person(models.Model):
+    name = models.CharField(max_length=50, blank=True)
+    age = models.IntegerField()
+    gender = models.CharField(max_length=10)

@@ -17,7 +17,7 @@ footer {
     text-align: center;
 }
 
-.my-3{
+.my-3 {
     text-align: center;
     color: rgba(71, 71, 71, 0.945);
 }
@@ -31,25 +31,33 @@ footer {
 }
 
 .home-slider h5 {
-    font-size: 70px;
+    font-size: 170px;
     color: white;
 }
 
 .home-slider p {
-    margin-top: -100px;
-    font-size: 15px;
-    color:dimgrey;
+    margin-top: -150px;
+    font-size: 65px;
+    color: dimgrey;
 }
 
 .carousel-caption {
-    bottom: 100px;
+    bottom: 45px;
+    display: flex;
+    align-content: center;
+}
+
+.carousel-caption h3 {
+
+    font-size: 65px;
+    color: rgb(247, 247, 247)
 }
 
 .carousel-item {
     height: 12rem;
 }
 
-.carousel-control-next{
+.carousel-control-next {
     height: 12rem;
 }
 
@@ -79,13 +87,13 @@ footer {
     margin: 12px 0;
 }
 
-.page-item.active .page-link{
+.page-item.active .page-link {
     background-color: rgb(58, 58, 58);
     border-color: white;
 }
 
-.page-link{
-    color:rgba(0, 0, 0, 0.719);
+.page-link {
+    color: rgba(0, 0, 0, 0.719);
 }
 
 .container.container_sign {
@@ -93,3 +101,16 @@ footer {
     margin-top: 160px;
 }
 
+.card-img-top {
+    max-width: 100% !important;
+    width: 100% !important;
+    height: 300px !important;
+    object-fit: cover;
+}
+
+.col-md-6 {
+    margin-bottom: 20px;
+}
+.col-xl-4 {
+    margin-bottom: 20px;
+}
