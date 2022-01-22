@@ -1,3 +1,4 @@
+
 body {
     margin-bottom: 60px;
 }
@@ -41,26 +42,23 @@ footer {
     height: 20rem;
 }
 
-.heading {
-    background-color: dimgrey;
-    padding-top: 20px;
-    border-radius: 5px;
-}
-
-.head_text {
-    color: rgb(233, 231, 231);
+#spahead {
+    color: rgb(115, 115, 115);
     text-align: center;
+    background: #f7f7f7;
+    border-radius: 9px;
+    margin-top: 20px;
+    height: 140px;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    border: 1px solid rgba(125, 125, 125, 0.13);
 }
 
 .col-sm {
     text-align: center;
     background-color: antiquewhite;
     margin: 5px;
-}
-
-.heading {
-    height: 80px;
-    margin: 40px 0;
 }
 
 .form-control {

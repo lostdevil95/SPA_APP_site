@@ -1,11 +1,9 @@
 {% extends "./base.html" %}
 {% load static %}
-        {% block css %}
-        <link rel="stylesheet" href="{% static '/css/style.css'%}" type='text/css'>
-        {% endblock %}
+
 {% block title %}Главная страница{% endblock %}
 
-{% block header %}
+{% block heading %}
 {% include './block/slider.html' %}
 {% endblock %}
 
@@ -34,8 +32,9 @@
         {% endfor %}
     </div>
 </div>
+{% include './block/pagination.html' %}
 {% endblock %}
 
-{% block pagination %}{% endblock %}
+
 
 {% block footer %}{% endblock %}
