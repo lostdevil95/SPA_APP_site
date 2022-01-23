@@ -42,17 +42,8 @@ footer {
     height: 20rem;
 }
 
-#spahead {
-    color: rgb(115, 115, 115);
-    text-align: center;
-    background: #f7f7f7;
-    border-radius: 9px;
-    margin-top: 20px;
-    height: 140px;
-    display: flex;
-    justify-content: space-evenly;
-    flex-direction: column;
-    border: 1px solid rgba(125, 125, 125, 0.13);
+.card-title{
+    color:rgb(141, 60, 60) !important;
 }
 
 .col-sm {
