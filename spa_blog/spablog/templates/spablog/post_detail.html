@@ -21,11 +21,11 @@
                 </ol>
             </nav>
             <!--    ЭТО ТЕЛО ПОСТА -->
-            <img class="img-fluid rounded " src="{{ post.image.url }}" alt="post image">
+            <img class="img-fluid rounded" src="{{ post.image.url }}" alt="post image">
             <hr>
-            <p class="lead">
+            <div class="lead">
                 {{ post.content | safe }}
-            </p>
+            </div>
             <hr>
             <p class="lead text-right">Автор:<a href="#">{{ post.author }}</a></p>
             <hr>

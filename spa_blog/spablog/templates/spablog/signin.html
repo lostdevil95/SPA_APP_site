@@ -1,0 +1,52 @@
+{% extends "./base.html" %}
+{% load static %}
+{% block title %}Вход{% endblock %}
+
+{% block heading %}
+{% endblock %}
+
+{% block content %} 
+<div class="container container_sign">
+    {% if form.errors %}
+            {% for field in form %}
+                {% for error in field.errors %}
+                    <div class="alert alert-danger">
+                        <strong>{{ error|escape }}</strong>
+                    </div>
+                {% endfor %}
+            {% endfor %}
+            {% for error in form.non_field_errors %}
+                <div class="alert alert-danger">
+                    <strong>{{ error|escape }}</strong>
+                </div>
+            {% endfor %}
+        {% endif %}
+    <!-- ФОРМА РЕГИСТРАЦИИ -->
+    <h1 class="h3 mb-3 mt-3 font-weight-normal" style='text-align: center;'>Залогиньтесь</h1>
+    <div style='height: 60px'></div>
+    <form class='form-signin' method='post' action="{% url 'signin' %}">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="InputUsername">Имя пользователя</label>
+            <div>
+            {{ form.username }}
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="InputPassword">Пароль</label>
+            <div>
+            {{ form.password }}
+            </div>
+        </div>
+        <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">Запомнить меня</label>
+        </div>
+        <div class="d-grid gap-2 col-12 mx-auto" style="display: flex; justify-content: center">
+            <button type="submit" class="btn btn-primary btn-lg">Вход</button>
+        </div>
+    </form>
+
+</div>
+{% endblock %}
+
