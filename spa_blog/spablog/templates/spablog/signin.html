@@ -2,8 +2,6 @@
 {% load static %}
 {% block title %}Вход{% endblock %}
 
-{% block heading %}
-{% endblock %}
 
 {% block content %} 
 <div class="container container_sign">
@@ -22,7 +20,7 @@
             {% endfor %}
         {% endif %}
     <!-- ФОРМА РЕГИСТРАЦИИ -->
-    <h1 class="h3 mb-3 mt-3 font-weight-normal" style='text-align: center;'>Залогиньтесь</h1>
+    <h1 class="h3 mb-3 mt-3 font-weight-normal" style='text-align: center;'>Вход</h1>
     <div style='height: 60px'></div>
     <form class='form-signin' method='post' action="{% url 'signin' %}">
         {% csrf_token %}

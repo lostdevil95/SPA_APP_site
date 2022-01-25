@@ -1,16 +1,14 @@
-@font-face {
-    font-family: 'JetBrainmono';
-    src: url('/static/fonts/JetBrainsMono-Medium.woff2') format('woff2'),
-         url('/static/fonts/JetBrainsMono-Medium.woff2') format('woff');
+  @font-face {
+    font-family: 'JetBrainLight';
+    src: url('/static/fonts/JetBrainsMono-Light.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
   }
-  
-  body {
-    font-family: JetBrainmono;
-  }
+
+
 
 body {
+    font-family: JetBrainLight !important;
     margin-bottom: 60px;
 }
 
@@ -117,7 +115,7 @@ html {
     padding-bottom: 15px;
     border: 0.5px solid #ccc;
     border-radius: 6px;
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 0px 5px rgba(102, 102, 102, 0.5);
 }
 
 .card-img-top {
