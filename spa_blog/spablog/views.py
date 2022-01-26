@@ -1,6 +1,5 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import View
-from .models import Post
 from django.core.paginator import Paginator
 from django.core.mail import send_mail, BadHeaderError
 from .models import Post
@@ -9,7 +8,7 @@ from django.contrib.auth import login, authenticate
 from django.http import HttpResponseRedirect, HttpResponse
 from django.db.models import Q
 
-
+Post.objects.all()
 class MainView(View):
     def get(self, request, *args, **kwargs):
         posts = Post.objects.all()
@@ -18,10 +17,12 @@ class MainView(View):
         page_object = paginator.get_page(page_number)
         return render(request, 'spablog/home.html', context={'page_object': page_object})
 
+
 class PostDetailView(View):
     def get(self, request, slug, *args, **kwargs):
         post = get_object_or_404(Post, url=slug)
         return render(request, 'spablog/post_detail.html', context={'post': post})
+
 
 class SignUpView(View):
     def get(self, request, *args, **kwargs):
@@ -41,11 +42,12 @@ class SignUpView(View):
             'form': form,
         })
 
+
 class SignInView(View):
     def get(self, request, *args, **kwargs):
         form = SignInForm()
         return render(request, 'spablog/signin.html', context={
-                            'form': form,})
+            'form': form, })
 
     def post(self, request, *args, **kwargs):
         form = SignInForm(request.POST)
@@ -56,7 +58,7 @@ class SignInView(View):
             if user is not None:
                 login(request, user)
                 return HttpResponseRedirect('/')
-        return render(request, 'spablog/signin.html', context={'form': form,})
+        return render(request, 'spablog/signin.html', context={'form': form, })
 
 
 class ContactFormView(View):
@@ -81,9 +83,11 @@ class ContactFormView(View):
             'form': form,
         })
 
+
 class SuccessView(View):
     def get(self, request, *args, **kwargs):
         return render(request, 'spablog/success.html')
+
 
 class SearchView(View):
     def get(self, request, *args, **kwargs):
