@@ -7,8 +7,11 @@ from .forms import SignUpForm, SignInForm, ContactForm
 from django.contrib.auth import login, authenticate
 from django.http import HttpResponseRedirect, HttpResponse
 from django.db.models import Q
+from taggit.models import Tag
 
 Post.objects.all()
+
+
 class MainView(View):
     def get(self, request, *args, **kwargs):
         posts = Post.objects.all()
@@ -99,3 +102,13 @@ class SearchView(View):
         page_number = request.GET.get('page')
         page_object = paginator.get_page(page_number)
         return render(request, 'spablog/search.html', context={'result': page_object, 'count': paginator.count})
+
+
+class TagView(View):
+    def get_page(self, request, slug, *args, **kwargs):
+        tag = get_object_or_404(Tag, slug=slug)
+        post = Post.objects.filter(tag=tag)
+        common_tags = Post.tag.most_common()
+        return render(request, 'spablog/tag.html', context={'title': f'#ТЕГ {tag}',
+                                                            'posts': post,
+                                                            'common_tags': common_tags})

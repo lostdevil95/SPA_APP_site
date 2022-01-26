@@ -4,37 +4,43 @@
 {% block title %}Главная страница{% endblock %}
 
 {% block heading %}
-{% include './block/slider.html' %}
+    {% include './block/slider.html' %}
 {% endblock %}
 
 
 {% block content %}
-<div class="container">
-    <h1 class="my-3">Последние записи блога</h1>
-    {% include './block/pagination.html' %}
-    <div class="row">
-        {% for post in page_object %}
-        <div class="col-md-6 col-xl-4">
-            <div class="card mb-4 shadow-sm h-100">
-                <a href="{% url 'post_detail' slug=post.url %}"><img src="media/{{ post.image }}" alt="" class="card-img-top"></a>
-                <div class="card-body">
-                    <a class="head-link" href="{% url 'post_detail' slug=post.url%}"><h4 class="card-title">{{ post.h1 }}</h4></a>
-                    <div class='description'>{{ post.description|safe|truncatechars:123 }}</div>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div class="btn-group">
-                            <a href="{% url 'post_detail' slug=post.url%}" class="btn btn-sm btn-outline-secondary">Подробнее</a>
+    <div class="container">
+        <h1 class="my-3">Последние записи блога</h1>
+        {% include './block/pagination.html' %}
+        <div class="row">
+            {% for post in page_object %}
+                <div class="col-md-6 col-xl-4">
+                    <div class="card mb-4 shadow-sm h-100">
+                        <a href="{% url 'post_detail' slug=post.url %}"><img src="media/{{ post.image }}" alt=""
+                                                                             class="card-img-top"></a>
+                        <div class="card-body">
+                            <a class="head-link" href="{% url 'post_detail' slug=post.url %}"><h4
+                                    class="card-title">{{ post.h1 }}</h4></a>
+                            <div class='description'>{{ post.description|safe|truncatechars:123 }}</div>
+                            {% for tag in p.tag.all %}
+                                <a href="{% url 'tag' tag.slug %}" class="mr-1 badge badge-info">#{{ tag }}</a>
+                            {% endfor %}
+                        <div style="height: 10px"></div>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <a href="{% url 'post_detail' slug=post.url %}"
+                                       class="btn btn-sm btn-outline-secondary">Подробнее</a>
+                                </div>
+                                <small class="text-muted">{{ post.created_at }}</small>
+                            </div>
                         </div>
-                        <small class="text-muted">{{ post.created_at }}</small>
                     </div>
                 </div>
-            </div>
+            {% endfor %}
         </div>
-        {% endfor %}
     </div>
-</div>
-{% include './block/pagination.html' %}
+    {% include './block/pagination.html' %}
 {% endblock %}
-
 
 
 {% block footer %}{% endblock %}
