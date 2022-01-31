@@ -22,7 +22,7 @@
                             <a class="head-link" href="{% url 'post_detail' slug=post.url %}"><h4
                                     class="card-title">{{ post.h1 }}</h4></a>
                             <div class='description'>{{ post.description|safe|truncatechars:123 }}</div>
-                            {% for tag in p.tag.all %}
+                            {% for tag in post.tag.all %}
                                 <a href="{% url 'tag' tag.slug %}" class="mr-1 badge badge-info">#{{ tag }}</a>
                             {% endfor %}
                         <div style="height: 10px"></div>

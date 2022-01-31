@@ -2,14 +2,12 @@ from django.shortcuts import render, get_object_or_404
 from django.views import View
 from django.core.paginator import Paginator
 from django.core.mail import send_mail, BadHeaderError
-from .models import Post
-from .forms import SignUpForm, SignInForm, ContactForm
+from .models import Post, Comment
+from .forms import SignUpForm, SignInForm, ContactForm, CommentForm
 from django.contrib.auth import login, authenticate
 from django.http import HttpResponseRedirect, HttpResponse
 from django.db.models import Q
 from taggit.models import Tag
-
-Post.objects.all()
 
 
 class MainView(View):
@@ -24,8 +22,23 @@ class MainView(View):
 class PostDetailView(View):
     def get(self, request, slug, *args, **kwargs):
         post = get_object_or_404(Post, url=slug)
-        return render(request, 'spablog/post_detail.html', context={'post': post})
+        common_tags = Post.tag.most_common()
+        last_post = Post.objects.all().order_by('-id')[:5]
+        comment_form = CommentForm()
+        return render(request, 'spablog/post_detail.html', context={'post': post,
+                                                                    'common_tags': common_tags,
+                                                                    'last_post': last_post,
+                                                                    'comment_form': comment_form})
 
+    def post(self, request, slug, *args, **kwargs):
+        comment_form = CommentForm(request.POST)
+        if comment_form.is_valid():
+            text = request.POST.get('text')
+            user = self.request.user
+            post = get_object_or_404(Post, url=slug)
+            Comment.objects.create(post=post, user=user, text=text)
+            return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
+        return render(request, 'spablog/post_detail.html', context={'comment_form': comment_form})
 
 class SignUpView(View):
     def get(self, request, *args, **kwargs):
@@ -105,10 +118,11 @@ class SearchView(View):
 
 
 class TagView(View):
-    def get_page(self, request, slug, *args, **kwargs):
+    def get(self, request, slug, *args, **kwargs):
         tag = get_object_or_404(Tag, slug=slug)
-        post = Post.objects.filter(tag=tag)
+        posts = Post.objects.filter(tag=tag)
         common_tags = Post.tag.most_common()
         return render(request, 'spablog/tag.html', context={'title': f'#ТЕГ {tag}',
-                                                            'posts': post,
+                                                            'posts': posts,
                                                             'common_tags': common_tags})
+

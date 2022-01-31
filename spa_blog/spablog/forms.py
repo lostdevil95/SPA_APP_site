@@ -2,6 +2,7 @@ from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
 from django.contrib.auth.password_validation import validate_password
+from .models import Comment
 
 
 class SignUpForm(forms.Form):
@@ -76,3 +77,12 @@ class ContactForm(forms.Form):
 
     message = forms.CharField( max_length=1000,
         required=True)
+
+
+class CommentForm(forms.ModelForm):
+
+    class Meta:
+        model = Comment
+        fields = ('text',)
+        widget = forms.Textarea(attrs={'class': 'form-control',
+                                       'row': 3})

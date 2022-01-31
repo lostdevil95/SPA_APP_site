@@ -24,6 +24,11 @@
             <div class="lead">
                 {{ post.content | safe }}
             </div>
+             <div class="d-flex justify-content-end">
+                {% for tag in post.tag.all %}
+                    <a href="{% url 'tag' tag.slug %}" class="mr-1 badge badge-info">#{{ tag }}</a>
+                {% endfor %}
+            </div>
             <hr>
             <p class="lead text-right">Автор:<a href="#">{{ post.author }}</a></p>
             <hr>
